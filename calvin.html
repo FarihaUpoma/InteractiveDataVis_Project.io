@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+
+    <script src="https://d3js.org/d3.v5.js"
+			integrity="sha384-qbNa7U27VV0Cghe/43y8zEMkmA5M4VxV6MI0k0vdVJKTrBoT2SnBqwccpD0vX+Is"
+			crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+            
+    <script src='js/script_calvin.js'></script>
+            
+
+
+
+    <title>CAP 4744/5745 - Interactive Data Visualization - Project 3</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Project 3: Fariha Moomtaheen</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active"><a class="nav-link" href="calvin.html">Calvin College 2004</a></li>
+            <li class="nav-item"><a class="nav-link" href="iris.html">Iris Dataset</a></li>
+            <li class="nav-item"><a class="nav-link" href="titanic.html">Titanic Passenger List</a></li>
+            <li class="nav-item"><a class="nav-link" href="wb_st.html">World Bank Data, Science-and-Technology</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="page">
+
+    <h1>CAP 4744/5745 - Interactive Data Visualization</h1>
+    <h2>Project 3: Calvin College 2004 Dataset</h2>
+    <h2>Fariha Moomtaheen</h2>
+
+    <h3>Visualization 1: Univarient Visualization(Bar Chart)</h3>
+<!--    <label for="selectExam">Select Exam: </label>-->
+<!--    <select class='selectButton' id="selectExam"></select>-->
+    <div><svg id="vis_1" name="vis_1" class="default_svg"></svg></div>
+    <div>
+        <p>A bar chart showing the average SAT verbal and SAT math scores of the 271 students.</p>
+        <p>I have used color to visually represent the two types of scores for the SAT exam- SAT Verbal
+        and SAT Math. The bars grow gradually when the page is loaded for the first time. I have added tooltip as animation to show the detailed
+        information about both of the bars.</p>
+    </div>
+
+    <h3>Visualization 2: Bivariate Visualization(Scatterplot)</h3>
+    <label for="selectX">Select X Axis: </label>
+    <select class='selectButton' id="selectX"></select>
+    <label for="selectY">Select Y Axis: </label>
+    <select class='selectButton' id="selectY"></select>
+
+    <div><svg id="vis_2" name="vis_2" class="default_svg"></svg></div>
+    <div>
+        <p>The scatterplot shows the test score distribution of the students based
+        on the student's other test scores.</p>
+        <p>There are two buttons to select the x and y axis of the scatterplot.
+        If selected the dots and the x, and y axises will rearrange themselves to reflect the scattered
+        relation among the scores. The mouse will select one dot when hovered over
+        and the effect will be shown by the changes of color and shape of a dot.
+        That selected dot will show data about that student's all the available
+        scores.</p>
+    </div>
+
+    <h3>Visualization 3: Easy Multivariate Visualizations( Stacked Bar Chart)</h3>
+    <div><svg id="vis_3" name="vis_3" class="default_svg"></svg></div>
+    <div>
+        <p>This is a stacked bar chart to show the average test scores of
+        students who are grouped by their GPA score. I have grouped the students
+        in 4 groups and we can see that the last group has the highest average
+         scores. This represents that the students with higher GPA scores well
+        in their SAT and ACT exams.</p>
+        <p>The bars will grow downwards when refreshed and the vibrant colors help easily differentiate among the different scores.
+         If hovered over, the mouse point will show the data for that particular
+        sector.</p>
+    </div>
+
+    <h3>Visualization 4: Aggregation( Pie Chart)</h3>
+    <div><svg id="vis_4" name="vis_4" class="default_svg"></svg></div>
+    <div>
+        <p>This pie chart shows the percentage of students divided by their GPA
+         scores. I have divided the students in 5 groups and demonstrated how
+        many students fall in each group. We can see that the group with the highest GPA
+        has the maximum number of students. This can represent the overall quality of
+        the class.</p>
+        <p>The groups are divided by colors and the legend shows which color is used
+        for which group. If we hover the mouse on any particular piece of the pie,
+        we can see the details about that group of students. When the chart is
+        loaded for the 1st time it will be created in a bouncy manner to entice the viewer.</p>
+    </div>
+
+</div>
+
+
+<script>
+
+    /*** START CODE HERE ***/
+    /*************************************************/
+    /* EXAMPLE CODE FOR LOADING AND VISUALIZING DATA */
+
+   var srsatact = d3.csv("data/srsatact.csv", (row, i) => {
+        return {
+            gpa: +row.GPA,
+            satm: +row.SATM,
+            satv: +row.SATV,
+            act: +row.ACT,
+        };
+    });
+    
+    
+    srsatact.then(data => {
+        barchart("#vis_1", srsatact)
+    })
+
+    srsatact.then(data => {
+           scatter("#vis_2", srsatact)
+    })
+    
+    srsatact.then(data => {
+            piechart("#vis_4", srsatact)
+    })
+
+    srsatact.then(data => {
+            barchartStack("#vis_3", srsatact)
+    })
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+
+body {
+	font-family: -apple-system,Helvetica Neue,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,sans-serif;
+	font-size: 14px;
+}
+
+h1 {
+	font-size: 22px;
+	padding: 0;
+	margin: 0 0 10px;
+}
+
+h2 {
+	font-size: 20px;
+	padding: 0;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+h3 {
+	font-size: 16px;
+	font-weight: bold;
+	padding: 0;
+	margin-top: 30px;
+}
+
+.default_svg {
+	border: 2px solid lightgray;
+	margin-top: 10px;
+    width: 900px;
+    height: 500px;
+}
+
+.page {
+	margin-left: 15px;
+	padding-top: 10px;
+	max-width: 1000px;
+}
+
+axis line{
+stroke: #706f6f;
+stroke-width: 0.5;
+shape-rendering: crispEdges;
+}
+
+/* axis contour */
+.axis path {
+stroke: #706f6f;
+stroke-width: 0.7;
+shape-rendering: crispEdges;
+}
+
+/* axis text */
+.axis text {
+fill: #2b2929;
+font-family: Georgia;
+font-size: 120%;
+}
+
+/* LINE CHART */
+path.line-0 {
+    fill: none;
+    stroke: #ed3700;
+}
+
+path.line-1 {
+    fill: none;
+    stroke: #2b2929;
+    stroke-dasharray: 2;
+}
+
+path.line-2 {
+    fill: none;
+    stroke: #9c9c9c;
+    stroke-dasharray: 6;
+}
+
+.serie_label {
+  fill: #2b2929;
+  font-family: Georgia;
+  font-size: 80%;
+}
+
+.tooltip {
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 15px;
+  min-width: 400px;
+  text-align: left;
+  color: white;
+}
+

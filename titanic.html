@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+
+    <script src="https://d3js.org/d3.v5.js"
+			integrity="sha384-qbNa7U27VV0Cghe/43y8zEMkmA5M4VxV6MI0k0vdVJKTrBoT2SnBqwccpD0vX+Is"
+			crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+
+    <!--*******************************************-->
+    <!--***** IMPORT EXTERNAL JAVASCRIPT CODE *****-->
+    <script src="js/scrip_titanic.js"></script>
+    <script src="js/sample_visualization.js"></script>
+    <!--*******************************************-->
+
+
+    <title>CAP 4744/5745 - Interactive Data Visualization - Project 3 (These are extra charts I've worked on)</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Project 3: Fariha Moomtaheen</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="calvin.html">Calvin College 2004</a></li>
+            <li class="nav-item"><a class="nav-link" href="iris.html">Iris Dataset</a></li>
+            <li class="nav-item active"><a class="nav-link" href="titanic.html">Titanic Passenger List</a></li>
+            <li class="nav-item"><a class="nav-link" href="wb_st.html">World Bank Data, Science-and-Technology</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="page">
+
+    <h1>CAP 4744/5745 - Interactive Data Visualization</h1>
+    <h2>Project 3: Titanic Passenger List Dataset</h2>
+    <h2>Fariha Moomtaheen</h2>
+
+    <h3>Visualization 1: Univariate Visualization( Bar Chart)</h3>
+    <div><svg id="vis_1" name="vis_1" class="default_svg"></svg></div>
+    <div>
+        <p>This visualization is showing the average fare of the male and female passengers of the
+        Titanic. </p>
+        <p>We can see that the average fare for the female passengers is almost double
+        than the male passengers. The reason for this discrepency could be the
+        difference in number of female and male passengers. The visualization is
+         clear to understand by use of seperate colors for the bars. Also the mouse
+        will show the exact average fare amount when hovered over. The bars grow
+        downwards to make the visualization more lively.</p>
+    </div>
+
+    <h3>Visualization 2: Bivariate Visualization( ScatterPlot)</h3>
+    <div><svg id="vis_2" name="vis_2" class="default_svg"></svg></div>
+    <div>
+        <p>This visualization shows the fares of every passenger aboard the Titanic.
+        On x axis, I have used age to show the distribution of the passengers
+        according to their ages. We can see that the oldest passenger is if age 80 and
+        the highest fare has been paid by passengers in the 35-60 range.</p>
+        <p>Each dot will show the name, home district (if available), age and fare
+        information of the passengers. </p>
+    </div>
+
+    <h3>Visualization 3: Easy Multivariate Visualizations( Stacked Bar Chart)</h3>
+    <div><svg id="vis_3" name="vis_3" class="default_svg"></svg></div>
+    <div>
+        <p>The x axis represents the passenger classes (1,2,3), and on Y axis we have the number
+            of passengers.This bar chart has multiple stacks to show these data. First, we
+        can get an idea of the total number of passengers in each Passenger Class.
+         It basically shows how many passengers died and survived of each class, and we
+        can see that the number of class 1 passenger death is the lowest, and class
+        3 passengers death rate is the highest.</p>
+        <p>After the bars are erected in the downward manner, we can see the information
+        by use of colors. Each colored bar shows more details when the mouse is
+        hovered over them.</p>
+    </div>
+
+    <h3>Visualization 4: Aggregation( Pie Chart)</h3>
+    <div><svg id="vis_4" name="vis_4" class="default_svg"></svg></div>
+    <div>
+        <p>This pie chart represents the number of males and females passengers
+        and their survival rate. We can see that the number of males' death is
+        the highest and most of the females survived. This is well represented
+        according to historical data.</p>
+        <p>The pie is created in a bouncy manner, and when the mouse is on them
+        the pie pieces will come out to represent the currently selected piece
+        of interest. It will simultaneously show the data of the selected piece
+        by the side of the visualization window.</p>
+    </div>
+
+</div>
+
+
+<script>
+
+    /*************************************************/
+    /* EXAMPLE CODE FOR LOADING AND VISUALIZING DATA */
+
+    var titanic_data = d3.csv("data/titanic_passenger_list.csv", (row, i) => {
+        return {
+            name: row.name,
+<!--            survived: (row.survived==1) ? "Yes": "No",-->
+            survived: +row.survived,
+            sex: row.sex,
+            age: +row.age,
+            fare: +row.fare,
+            class: +row.pclass,
+            place: row['home.dest'],
+        };
+    });
+
+    titanic_data.then(data => {
+        piechart("#vis_4", titanic_data)
+    })
+
+    titanic_data.then(data => {
+        scatter("#vis_2", titanic_data)
+    })
+
+    titanic_data.then(data => {
+        barchartStack("#vis_3", titanic_data)
+    })
+
+    titanic_data.then(data => {
+        barchart("#vis_1", titanic_data)
+    })
+
+
+</script>
+
+</body>
+</html>
